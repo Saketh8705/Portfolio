@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saketh Gade - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .typewriter-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.5em;
+            background-color: #818cf8;
+            animation: blink 0.7s infinite;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #818cf8;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .section-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .skill-badge {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 1.25rem;
+            height: 100%;
+            width: 2px;
+            background-color: #334155;
+        }
+        .timeline-item .icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: translateX(-50%);
+            background-color: #0a0a0a;
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">SG</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link text-slate-300 hover:text-white">About</a>
+                    <a href="#education" class="nav-link text-slate-300 hover:text-white">Education</a>
+                    <a href="#projects" class="nav-link text-slate-300 hover:text-white">Projects</a>
+                    <a href="#skills" class="nav-link text-slate-300 hover:text-white">Skills</a>
+                    <a href="#contact" class="nav-link text-slate-300 hover:text-white">Contact</a>
+                </div>
+                <a href="#contact" class="hidden md:inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg transition-transform transform hover:scale-105">Contact Me</a>
+                <button id="mobile-menu-button" class="md:hidden text-slate-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </nav>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/80 backdrop-blur-sm">
+            <a href="#about" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">About</a>
+            <a href="#education" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Education</a>
+            <a href="#projects" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Projects</a>
+            <a href="#skills" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Skills</a>
+            <a href="#contact" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center bg-cover bg-center" style="background-image: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 1)), url('https://placehold.co/1920x1080/0a0a0a/1f2937')">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4">
+                    Hi, I'm <span class="gradient-text">Saketh Gade</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-300">
+                    <span id="typewriter"></span><span class="typewriter-cursor"></span>
+                </p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-5 gap-12 items-center">
+                    <div class="md:col-span-2 scroll-reveal">
+                        <img src="https://placehold.co/600x600/1e293b/e2e8f0?text=SG" alt="Saketh Gade" class="rounded-full border-4 border-slate-700 shadow-lg w-full max-w-sm mx-auto">
+                    </div>
+                    <div class="md:col-span-3 scroll-reveal">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">About <span class="gradient-text">Me</span></h2>
+                        <p class="text-slate-400 leading-relaxed">
+                            I am a highly motivated and curious B.Tech Computer Science student with a strong interest in artificial intelligence, IoT, and interdisciplinary research. I enjoy solving real-world problems through innovative tech solutions and have experience working on community-driven projects like AI assistants, sustainable development solutions, and agriculture-focused UGVs. I'm passionate about learning new technologies, building practical systems, and collaborating with diverse teams to create meaningful impact.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-20 md:py-32 bg-slate-900/50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 scroll-reveal">My <span class="gradient-text">Education</span></h2>
+                <div class="relative max-w-2xl mx-auto timeline">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item mb-12 pl-10 scroll-reveal">
+                        <div class="icon p-2 rounded-full bg-indigo-500 text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <p class="text-sm text-slate-400 mb-1">2020 - Present</p>
+                        <h3 class="text-xl font-bold text-white">B.Tech, Computer Science</h3>
+                        <p class="text-slate-300">Anurag University, Hyderabad</p>
+                    </div>
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item mb-12 pl-10 scroll-reveal">
+                        <div class="icon p-2 rounded-full bg-indigo-500 text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22h-4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2z"></path><path d="M18 6H6"></path><path d="M18 18H6"></path></svg>
+                        </div>
+                        <p class="text-sm text-slate-400 mb-1">2018 - 2020</p>
+                        <h3 class="text-xl font-bold text-white">Intermediate (11th & 12th)</h3>
+                        <p class="text-slate-300">Narayana Junior College</p>
+                    </div>
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item pl-10 scroll-reveal">
+                        <div class="icon p-2 rounded-full bg-indigo-500 text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10v6"></path><path d="M6 10v1c0 2.5-2 2.5-2 5v1h16v-1c0-2.5-2-2.5-2-5v-1a4 4 0 0 0-4-4h-4a4 4 0 0 0-4 4Z"></path><path d="M2 16h20"></path></svg>
+                        </div>
+                        <p class="text-sm text-slate-400 mb-1">Until 2018</p>
+                        <h3 class="text-xl font-bold text-white">Class 10th</h3>
+                        <p class="text-slate-300">Delhi Public School</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 scroll-reveal">Hackathon <span class="gradient-text">Projects</span></h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <div class="section-card rounded-lg p-8 scroll-reveal">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full bg-sky-500/20 text-sky-400 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 2.2a.9.9 0 0 0-1.2 0l-6 5.1a.9.9 0 0 0 .6 1.6h.4l.7 7.2a2 2 0 0 0 2 1.9h4a2 2 0 0 0 2-1.9l.7-7.2h.4a.9.9 0 0 0 .6-1.6Z"></path><path d="M10 12v4"></path><path d="M14 12v4"></path><path d="M15 7h1a1 1 0 0 1 1 1v2h-3v-3a1 1 0 0 1 1-1Z"></path><path d="M4 18h16"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Fire Safety System</h3>
+                                <p class="text-sm text-slate-400">HACKATTACK - IoT Domain</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-400">
+                            Participated in a national-level hackathon at Anurag University, developing a fire safety system using Arduino Uno to demonstrate a practical IoT solution for real-world safety concerns.
+                        </p>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="section-card rounded-lg p-8 scroll-reveal">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full bg-emerald-500/20 text-emerald-400 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5a12.5 12.5 0 0 0 0 11m11 0a12.5 12.5 0 0 0 0-11"></path><path d="M12 2a10 10 0 0 0-10 10c0 4.4 3.6 8 8 8s8-3.6 8-8a10 10 0 0 0-10-10z"></path><path d="m14 14-4-4"></path><path d="m10 14 4-4"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Fitness & Diet App UI</h3>
+                                <p class="text-sm text-slate-400">TECH HACKS - App Domain</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-400">
+                            Designed the user interface for a fitness and diet recommendation application. This project, part of the Tech Hacks hackathon, focused on creating an intuitive and user-friendly design.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 md:py-32 bg-slate-900/50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 scroll-reveal">Technologies & <span class="gradient-text">Skills</span></h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="mb-12 scroll-reveal">
+                        <h3 class="text-2xl font-semibold text-center mb-8 text-white">Programming & Tools</h3>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <span class="skill-badge text-slate-300 font-medium px-4 py-2 rounded-lg">C Language</span>
+                            <span class="skill-badge text-slate-300 font-medium px-4 py-2 rounded-lg">Python</span>
+                            <span class="skill-badge text-slate-300 font-medium px-4 py-2 rounded-lg">HTML</span>
+                            <span class="skill-badge text-slate-300 font-medium px-4 py-2 rounded-lg">CSS</span>
+                            <span class="skill-badge text-slate-300 font-medium px-4 py-2 rounded-lg">Streamlit</span>
+                            <span class="skill-badge text-slate-300 font-medium px-4 py-2 rounded-lg">Numpy</span>
+                            <span class="skill-badge text-slate-300 font-medium px-4 py-2 rounded-lg">Pandas</span>
+                            <span class="skill-badge text-slate-300 font-medium px-4 py-2 rounded-lg">Matplotlib</span>
+                            <span class="skill-badge text-slate-300 font-medium px-4 py-2 rounded-lg">Git & GitHub</span>
+                        </div>
+                    </div>
+                    <div class="scroll-reveal">
+                        <h3 class="text-2xl font-semibold text-center mb-8 text-white">Languages</h3>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <span class="skill-badge text-slate-300 font-medium px-4 py-2 rounded-lg">English</span>
+                            <span class="skill-badge text-slate-300 font-medium px-4 py-2 rounded-lg">Hindi</span>
+                            <span class="skill-badge text-slate-300 font-medium px-4 py-2 rounded-lg">Telugu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 scroll-reveal">Get In <span class="gradient-text">Touch</span></h2>
+                <p class="text-slate-400 max-w-2xl mx-auto mb-12 scroll-reveal">
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of an innovative team. Feel free to reach out.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8 scroll-reveal">
+                    <a href="mailto:sakethgade8705@gmail.com" class="inline-flex items-center text-lg text-slate-300 hover:text-indigo-400 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        sakethgade8705@gmail.com
+                    </a>
+                     <div class="inline-flex items-center text-lg text-slate-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        +91 7330683311
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900/50 border-t border-slate-800">
+        <div class="container mx-auto px-6 py-6 text-center text-slate-500">
+            <p>&copy; 2024 Saketh Gade. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Header background on scroll ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-slate-900/80', 'backdrop-blur-sm', 'shadow-lg');
+            } else {
+                header.classList.remove('bg-slate-900/80', 'backdrop-blur-sm', 'shadow-lg');
+            }
+        });
+
+        // --- Typewriter Effect ---
+        const typewriterElement = document.getElementById('typewriter');
+        const phrases = [
+            "A Computer Science Student.",
+            "An AI & IoT Enthusiast.",
+            "A Tech Innovator.",
+            "A Passionate Learner."
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = 150;
+            if (isDeleting) {
+                typeSpeed /= 2;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500; // Pause before new phrase
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+        document.addEventListener('DOMContentLoaded', type);
+
+        // --- Scroll Reveal Animation ---
+        const scrollElements = document.querySelectorAll('.scroll-reveal');
+        const elementInView = (el, dividend = 1) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+            );
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 1.25)) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            handleScrollAnimation();
+        });
+        // Trigger on load for elements already in view
+        handleScrollAnimation();
+
+    </script>
+</body>
+</html>
